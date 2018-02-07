@@ -1,0 +1,133 @@
+\documentclass[a4paper]{article}
+\usepackage{graphicx}
+\usepackage[slovene]{babel}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\author {Alan Bizjak}
+\title {Uvod v Buhlmanov dekompresijski model}
+\date{30.10.2010}
+\begin{document}
+\maketitle
+
+\section{Uvod}
+
+V potapljaški literaturi je mnogo govora o dekompresiji in
+različnih dekompresijskih modelih. Na žalost skoraj nobena
+literatura ne govori o samem algoritmu. Med drugim tudi ni nič
+napisanega v slovenščini, zato sem se odločil da opišem
+Buhlmanov dekompresijski model. Naj omenim samo to da Buhlman ni
+``izumil'' modela, temveč je večino samo zbral in izpopolnil
+delo drugih kot so John S. Haldane, Robert D. Workman (U.S. Navy) in
+Heinz R. Schreiner.
+
+\section{Absorbcija inertnega plina v tkivo na konstatni globini}
+Za začetek poglejmo kaj se dogaja z našim telesom na
+konstantni globini oziroma pri konstantnem tlaku. Zaradi enostavnosti
+prespostavimo da smo se v trenuktu potopilo na globino s tlakom
+$P_{alv}$.  V našem telesu je manjši tlak inertnega plina kot
+v pljučih ($P_{alv}$). Hitrost spremembe tlaka v tkivu je
+sorazmerna razliki tlakov v pljučih in v telesu. Z enačbo to
+zapišemo kot
+\begin{equation}
+  \frac{\mathrm{d} P(t)}{\mathrm{d} t}=k\left(P_{alv}(t)-P(t)\right)
+\end{equation} 
+\begin{itemize}
+\item{$P(t)$ - parcialni tlak inertnega plina v tkivu}
+\item{$P_{alv}(t)$ - parcialni tlak inertnega plina v dihalni mešanici oziroma v pljučih (alveolih). Le ta se lahko s časom spreminja, zato je napisana tudi časovna odvisnost.}
+\item{$k$ - konstanta tkiva, ki nam pove kako hitro se nasiti tkivo. }
+\item{$t$ - čas}
+\end{itemize}
+Dobili smo nehomogeno diferencialno enačbo prvega reda z konstatnimi koeficienti. 
+\begin{equation}
+\frac{\mathrm{d} P(t)}{\mathrm{d} t}+k P(t)=k P_{alv}(t)
+\label{eq:neh1}
+\end{equation}
+Za reševanje diferencialne enačbe prvega reda v matematiki obstaja naslednji recept. Najprej rešimo homogeni del enačbe. 
+\begin{equation}
+\frac{\mathrm{d} P(t)}{\mathrm{d} t}+k P(t)=0 \quad \frac{\mathrm{d} P(t)}{P} = -k\mathrm{d}t
+\end{equation} 
+Po integraciji dobimo naslednjo enačbo
+\begin{equation}
+\ln P(t)=-kt+\ln C' \quad P(t) = Ce^{-kt},
+\end{equation} 
+pri čemer sta $C$ in $C'$ konstanti. Rešitev nehomogene enačbe \ref{eq:neh1} dobimo z variacijo konstante.
+Vstavimo v enačbo in dobimo
+\begin{equation}
+C'e^{-kt}-Ce^{-kt}+Ce^{-kt}=C'e^{-kt}=kP_{alv}
+\end{equation} 
+Pri tem je $C'=\frac{\mathrm{d} C}{\mathrm{d} t}$. Po integraciji po času dobimo
+\begin{equation}
+C=P_{alv}e^{kt}+D
+\end{equation}
+Pri čemer je $D$ nova konstanta, saj izvedli nedoločen integral. 
+Splošna rešitev se sedaj glasi 
+\begin{equation}
+P(t)=P_{alv}+De^{-kt}
+\end{equation}
+Za določitev konstante D upoštevamo še robne pogoje. Pri času $t$=0 upoštevamo da je tkivo že nasišeno z nekim parcialnim tlakom $P_{t_0}$.
+\begin{equation} 
+P(0)=P_{t_0}=P_{alv}+D \quad D=P_{t_0}-P_{alv}
+\end{equation}
+Vstavimo kostatno $D$ v enačbo  in končna rešitev se glasi
+\begin{equation}
+P(t)=P_{alv}+[P_{t_0}-P_{alv}]e^{-kt}
+\end{equation}
+Enačbo lahko nekoliko preoblikujemo in dobimo 
+\begin{equation}
+P(t)=P_{t_0}+[P_{alv}-P_{t_0}][1-e^{-kt}],
+\end{equation}
+ki je v dekompresijski literaturi znana kot Haldanova enačba. 
+\section{Absorbcija inertnega plina v tkivo pri dvigu oziroma spustu}
+Pri potopu potapljač tudi spreminja globino. V tem poglavju si bomo pogledali kako se spreminja tlak inertnega plina pri dvigovanju ali spučanju s konstantno hitrostjo. To pomeni da se parcialni tlak dihanega plina spreminja linearno s časom. Spreminjanje tlaka $P_{alv}$  zapišemo kot
+\begin{equation}
+P_{alv}=P_{alv_0}+rt
+\end{equation}
+Pri tem je $P_{alv0}$ začetni parcialni tlak inertnega plina pri času $t$=0 in $r$ hitrost dvigovanja v enotah tlaka na časovno enoto. Količina $r$ je negativna pri dvigovanju in pozitivna pri spučanju v globino. 
+Enačba se zapiše kot
+\begin{equation}
+  \frac{\mathrm{d} P(t)}{\mathrm{d} t}=k\left(P_{alv_0}+rt-P(t)\right) \quad  \frac{\mathrm{d} P(t)}{\mathrm{d} t} + kP(t) = kP_{alv_0}+krt 
+\end{equation}   
+Zopet najprej rešujemo homogeni del enačbe. 
+\begin{equation}
+\frac{\mathrm{d} P(t)}{\mathrm{d} t} + kP(t)=0 \quad \frac{\mathrm{d} P(t)}{P(t)} = -k\mathrm{d} t 
+\end{equation}
+Po integraciji dobimo
+\begin{equation}
+\ln P(t) = -kt + \ln C \quad P(t) = Ce^{-kt}
+\end{equation}
+Zopet uporabimo metodo variacije konstante. Vstavimo v enačbo in dobimo
+\begin{equation}
+C' e^{-kt}-kC e^{-kt}+kC e^{-kt}=kP_{alv_0}+krt \quad C'=\frac{\mathrm{d} C}{\mathrm{d} t}=kP_{alv_0}e^{kt}+krt e^{kt}
+\end{equation}
+Enačbo sedaj integriramo po času in dobimo
+\begin{equation}
+C=P_{alv_0} e^{kt}+rt e^{kt}-\frac{r}{k}e^{kt}+D
+\end{equation}
+Vstavimo v enačbo in dobimo
+\begin{equation}
+P(t)=P_{alv_0}+rt-\frac{r}{k}+De^{-kt}
+\end{equation}
+Za določitev konstante $D$ je potrebno upoštevati robni pogoj, ki se glasi $P(t=0)=P_{t_0}$. Iz tega pogoja za konstatno $D$ dobimo
+\begin{equation}
+D=P_{t_0}-P_{alv_0}+\frac{r}{k}
+\end{equation}
+Končna rešitev se glasi
+\begin{equation}
+P(t)=P_{alv_0}+r(t-\frac{1}{k})+[P_{t_0}-P_{alv_0}+\frac{r}{k}]e^{-kt}
+\end{equation}
+Enačba je v dekompresijski literaturi znana kot Schreinerjeva enačba, saj je do nje prvi prišel Schreiner.
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+

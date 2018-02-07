@@ -1,0 +1,51 @@
+DISCLAIMER:   anybody who uses this program to calculate actual dives takes
+full responsability for their own actions and understand/accept all the risks
+inherent in technical diving.
+This dive schedule is experimental, under no circumstances there is any
+implication that is safe or that you wont get bent, use it at your own risk.
+
+
+DIVE PROFILE
+
+Seg- Segm.   Run | Gasmix |  Ascent   From      To      Rate Constant
+ment  Time  Time |   Used |      or  Depth   Depth   +Dn/-Up    Depth
+   # (min) (min) |      # | Descent (mswg)  (mswg) (msw/min)   (mswg)
+----  ----  ---- |   ---- |    ----   ----    ----      ----     ----
+1    6.0     6.0 |      1 | descent    0.0   60.0      10.0          
+2     24.0  30.0 |      1 |                                     60.0   
+
+DECOMPRESSION PROFILE
+
+Seg- Segm.   Run | Gasmix |  Ascent    Ascent    Max |   DECO  STOP   RUN Gradient
+ment Time.  Time |   Used |      To      Rate    %M- |   STOP  TIME  TIME   Factor
+   # (min) (min) |      # |  (mswg) (msw/min)  Value | (mswg) (min) (min)     (GF)
+ ---   ---   --- |    --- |     ---       ---    --- |    ---   ---   ---      ---
+3      0.3  30.3 |      1 |    57.0     -10.0  0.478 |                             
+4      0.3  30.6 |      1 |    54.0     -10.0  0.499 |                             
+5      0.3  30.9 |      1 |    51.0     -10.0  0.522 |                             
+6      0.3  31.2 |      1 |    48.0     -10.0  0.545 |                             
+7      0.3  31.5 |      1 |    45.0     -10.0  0.571 |                             
+8      0.3  31.8 |      1 |    42.0     -10.0  0.599 |                             
+9      0.3  32.1 |      1 |    39.0     -10.0  0.629 |                             
+10     0.3  32.4 |      1 |    36.0     -10.0  0.661 |                             
+11     0.3  32.7 |      1 |    33.0     -10.0  0.697 |                             
+12     1.0  33.7 |      1 |                          |   33.0   1.0  33.7    0.300
+13     0.3  34.0 |      1 |    30.0     -10.0  0.724 |                             
+14     1.0  35.0 |      1 |                          |   30.0   1.0  35.0    0.350
+15     0.3  35.3 |      1 |    27.0     -10.0  0.753 |                             
+16     1.0  36.3 |      1 |                          |   27.0   1.0  36.3    0.400
+17     0.3  36.6 |      1 |    24.0     -10.0  0.785 |                             
+18     2.0  38.6 |      1 |                          |   24.0   2.0  38.6    0.450
+19     0.3  38.9 |      1 |    21.0     -10.0  0.806 |                             
+20     2.0  40.9 |      2 |                          |   21.0   2.0  40.9    0.500
+21     0.3  41.2 |      2 |    18.0     -10.0  0.809 |                             
+22     2.0  43.2 |      2 |                          |   18.0   2.0  43.2    0.550
+23     0.3  43.5 |      2 |    15.0     -10.0  0.833 |                             
+24     3.0  46.5 |      2 |                          |   15.0   3.0  46.5    0.600
+25     0.3  46.8 |      2 |    12.0     -10.0  0.855 |                             
+26     4.0  50.8 |      2 |                          |   12.0   4.0  50.8    0.650
+27     0.3  51.1 |      2 |     9.0     -10.0  0.882 |                             
+28     7.0  58.1 |      2 |                          |    9.0   7.0  58.1    0.700
+29     0.3  58.4 |      2 |     6.0     -10.0  0.899 |                             
+30    24.0  82.4 |      3 |                          |    6.0  24.0  82.4    0.750
+31     2.0  84.4 |      3 |     0.0      -3.0  0.929 |                             
