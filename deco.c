@@ -191,13 +191,15 @@ int main(int argc, char *argv[]){
 	  
 
 	  float triald;
-	  float stepsz,fctrhi,fctrlo,change,change_time;
+	  float stepsz,fctrhi,fctrlo,change,change_old, change_time, change_time_old;
 	  fgets(line, sizeof(line), inFile);
 	  sscanf(line,"%d %f %f %f %f",&mixnum,&rate,&stepsz,&fctrhi,&fctrlo);
 	  mixnum--;
 	  fgets(line, sizeof(line), inFile);
 	  sscanf(line,"%f %f",&change,&change_time);
-
+	  change_old = change;
+	  change_time_old = change_time;
+	  
 	  printf("deepest deco stop %f\n",deepest_deco_stop(depth,rate));	  
 	  factor=fctrlo;
 	  float fctrsl=0.0;
@@ -210,15 +212,23 @@ int main(int argc, char *argv[]){
 	      float nxstop = triald;
 	      if (triald==change)
 	      	stopd = triald_tmp + stepsz;
-	      else
+	      else 
 		stopd = triald+stepsz;
+	
 	      if (stopd > 0.0f && fctrsl ==0.0f){
 		fctrsl = (fctrhi-fctrlo)/(0.0-stopd);
 	      }
+	      
 	      float stopgf = factor;
 	      factor = nxstop*fctrsl+fctrhi;
-	      
+
+	      if (stopd == change_old) 
+		segtime = change_time_old;
+	      else
+		segtime = 1.0;
+
 	      decostop(stopd,nxstop,mixnum);
+
 	      fprintf(outFile,"%-4d %5.1f %5.1f | %6d | %7s %9s  %5s | %6.1f %5.1f %5.1f %8.3f\n",
 		      segnum,segtime,runtime,mixnum+1," "," "," ",stopd,segtime,runtime,stopgf);
 	      
@@ -239,9 +249,12 @@ int main(int argc, char *argv[]){
 	      sscanf(line,"%d %f %f",&mixnum,&rate,&stepsz);
 	      mixnum--;
 	      fgets(line, sizeof(line), inFile);
-	      sscanf(line,"%f",&change);
+	      change_old = change;
+	      change_time_old = change_time;
+	      sscanf(line,"%f %f",&change, &change_time);
+	      
 	    }
-	    
+	   
 	  }while(triald > 0.0);
 	  
       }     
@@ -400,7 +413,7 @@ void decostop(float stopd,float nxstop,int mixnum){ //decostop
   float ceiling;
   //  float round = roundf(runtime + 0.5);
   //segtime = round - runtime;
-  segtime=1.0;
+  //segtime=1.0;
   float p_amb = stopd + 10.0;
   float pHe_alv=(p_amb-pH2O)*fHe[mixnum];
   float pN2_alv;
